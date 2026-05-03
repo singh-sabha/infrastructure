@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: singhsabha
+  namespace: monitoring
+  labels:
+    release: kube-prom
+spec:
+  namespaceSelector:
+    matchNames:
+      - apps-singhsabha
+  endpoints:
+    - port: metrics
+      path: /metrics
+  selector:
+    matchLabels:
+      app: www

@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: www
+  namespace: apps-singhsabha
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: www
+  template:
+    metadata:
+      labels:
+        app: www
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: www
+          image: ghcr.io/singh-sabha/www:latest
+          ports:
+            - containerPort: 4000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: DATABASE_URL
+            - name: RESEND_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: RESEND_API_KEY
+            - name: YOUTUBE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: YOUTUBE_API_KEY
+            - name: N8N_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: N8N_SECRET
+            - name: STRIPE_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: STRIPE_SECRET_KEY
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: SECRET_KEY_BASE
+            - name: PHX_HOST
+              value: "singhsabha.net"
+            - name: PHX_SERVER
+              value: "true"
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
