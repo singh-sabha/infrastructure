@@ -17,7 +17,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: www
-          image: ghcr.io/singh-sabha/www:v1.2.3
+          image: ghcr.io/singh-sabha/www:v1.2.4
           ports:
             - containerPort: 4000
           env:
