@@ -55,6 +55,11 @@ spec:
               value: "singhsabha.net"
             - name: PHX_SERVER
               value: "true"
+            - name: RELEASE_COOKIE
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: ERLANG_COOKIE
             - name: POD_IP
               valueFrom:
                 fieldRef:
