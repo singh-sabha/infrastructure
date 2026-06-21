@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: www
-  namespace: apps-singhsabha
+  namespace: singhsabha
 spec:
   replicas: 2
   selector:
@@ -36,11 +36,6 @@ spec:
                 secretKeyRef:
                   name: singhsabha-secret
                   key: YOUTUBE_API_KEY
-            - name: N8N_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: singhsabha-secret
-                  key: N8N_SECRET
             - name: STRIPE_SECRET_KEY
               valueFrom:
                 secretKeyRef:
