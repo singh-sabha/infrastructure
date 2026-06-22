@@ -4,3 +4,6 @@ resources:
   - ghcr-external-secret.yaml
   - ingress.yaml
   - service.yaml
+  - image-repository.yaml
+  - image-policy.yaml
+  - image-update-automation.yaml
