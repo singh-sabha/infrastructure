@@ -7,4 +7,4 @@ spec:
   image: ghcr.io/singh-sabha/www
   interval: 5m
   secretRef:
-    name: ghcr
+    name: ghcr-secret
