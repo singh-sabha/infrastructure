@@ -16,6 +16,8 @@ spec:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
+      messageTemplate: |
+        chore(www): bump image to {{range .Updated.Images}}{{println .}}{{end}}
     push:
       branch: main
   update:
