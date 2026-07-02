@@ -41,6 +41,11 @@ spec:
                 secretKeyRef:
                   name: singhsabha-secret
                   key: STRIPE_SECRET_KEY
+            - name: GOOGLE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: GOOGLE_API_KEY
             - name: SECRET_KEY_BASE
               valueFrom:
                 secretKeyRef:
