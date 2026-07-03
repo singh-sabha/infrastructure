@@ -51,6 +51,21 @@ spec:
                 secretKeyRef:
                   name: singhsabha-secret
                   key: SECRET_KEY_BASE
+            - name: BUCKET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: BUCKET_ACCESS_KEY
+            - name: BUCKET_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: BUCKET_SECRET_KEY
+            - name: BUCKET_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: singhsabha-secret
+                  key: BUCKET_HOST
             - name: PHX_HOST
               value: "singhsabha.net"
             - name: PHX_SERVER
