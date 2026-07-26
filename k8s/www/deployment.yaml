@@ -17,7 +17,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: www
-          image: ghcr.io/singh-sabha/www:v2.0.2 # {"$imagepolicy": "flux-system:www"}
+          image: ghcr.io/singh-sabha/www:v2.0.3 # {"$imagepolicy": "flux-system:www"}
           ports:
             - containerPort: 4000
           env:
